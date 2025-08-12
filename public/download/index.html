@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Download Bonded</title>
+<script>
+(function(){
+  var ua = navigator.userAgent || navigator.vendor || window.opera;
+  var isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+  var isAndroid = /Android/.test(ua);
+  var APPLE = "https://apps.apple.com/app/bonded/id000000000"; // TODO: replace
+  var PLAY  = "https://play.google.com/store/apps/details?id=com.bonded.app"; // TODO: replace
+  if (isIOS)      window.location.replace(APPLE);
+  else if (isAndroid) window.location.replace(PLAY);
+  else            window.location.replace("https://bondedlove.net");
+})();
+</script>
+</head>
+<body>
+  <noscript>
+    <p>Choose your platform:
+      <a href="https://apps.apple.com/app/bonded/id000000000">App Store (iOS)</a> ·
+      <a href="https://play.google.com/store/apps/details?id=com.bonded.app">Google Play (Android)</a>
+    </p>
+  </noscript>
+</body></html>
