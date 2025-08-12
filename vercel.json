@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "builds": [{ "src": "public/**", "use": "@vercel/static" }],
+  "routes": [
+    // --- canonicalize www -> root
+    { "src": "https?://www\\.bondedlove\\.net/?(.*)", "headers": { "Location": "https://bondedlove.net/$1" }, "status": 308 },
+
+    // --- shortlinks (update these 2 URLs when your stores go live)
+    { "src": "/apple", "status": 301, "headers": { "Location": "https://apps.apple.com/app/bonded/id000000000" } },
+    { "src": "/a",     "status": 301, "headers": { "Location": "https://apps.apple.com/app/bonded/id000000000" } },
+    { "src": "/google","status": 301, "headers": { "Location": "https://play.google.com/store/apps/details?id=com.bonded.app" } },
+    { "src": "/g",     "status": 301, "headers": { "Location": "https://play.google.com/store/apps/details?id=com.bonded.app" } },
+
+    // --- smart device redirect page
+    { "src": "/download", "dest": "/public/download/index.html" },
+
+    // --- serve static files from /public
+    { "src": "/(.*)", "dest": "/public/$1" }
+  ]
+}
